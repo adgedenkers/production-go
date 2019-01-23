@@ -1,0 +1,48 @@
+<soap:envelope xmlns:soap=​"http:​/​/​schemas.xmlsoap.org/​soap/​envelope/​" xmlns:xsi=​"http:​/​/​www.w3.org/​2001/​XMLSchema-instance" xmlns:xsd=​"http:​/​/​www.w3.org/​2001/​XMLSchema">​
+	<soap:body>​
+		<getlistitemsresponse xmlns=​"http:​/​/​schemas.microsoft.com/​sharepoint/​soap/​">​
+			<getlistitemsresult>​
+				<listitems xmlns:s=​"uuid:​BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882" xmlns:dt=​"uuid:​C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:rs=​"urn:​schemas-microsoft-com:​rowset" xmlns:z=​"#RowsetSchema">​
+					<rs:data ItemCount=​"2">​
+						<z:row 
+							ows_Title=​"PD Development Management Offsite Austin December 2010" 
+							ows_MetaInfo=​"2;​#vti_rtag:​SW|rt:​7B5EC7A6-D0D8-4461-97FF-E9BCF2F462F1@00000000000 vti_etag:​SW|"​{7B5EC7A6-D0D8-4461-97FF-E9BCF2F462F1}​,0"​ vti_modifiedby:​SR|VHAMASTER\\vhaisamihalg ContentTypeId:​SW|0x012000A98EFEBF4BB3E4498B2CB17C1C1809AB vti_title:​SW|PD Development Management Offsite Austin December 2010 ContentType:​SW|Folder vti_replid:​SR|rid:​{7B5EC7A6-D0D8-4461-97FF-E9BCF2F462F1}​ " 
+							ows__ModerationStatus=​"0" 
+							ows__Level=​"1" 
+							ows_Last_x0020_Modified=​"2;​#2010-12-22 10:​48:​05" 
+							ows_ID=​"2" 
+							ows_owshiddenversion=​"2" 
+							ows_UniqueId=​"2;​#{7B5EC7A6-D0D8-4461-97FF-E9BCF2F462F1}​" 
+							ows_FSObjType=​"2;​#1" 
+							ows_Created_x0020_Date=​"2;​#2010-12-21 10:​24:​19" 
+							ows_ProgId=​"2;​#" 
+							ows_FileLeafRef=​"2;​#PD Development Management Offsite Austin December 2010" 
+							ows_Modified=​"2010-12-21 13:​42:​47" 
+							ows_FileRef=​"2;​#management/​Library/​PD Development Management Offsite Austin December 2010" 
+							ows_Editor=​"19;​#Mihalak, Gail">
+						​</z:row>​
+						<z:row 
+							ows_Event=​"3;​#OI&​T Product Development (PD)​ Management Off-site  (Austin, TX)​" 
+							ows_MetaInfo=​"3;​#Subject:​EW| Document Owner:​EW| vti_parserversion:​SR|12.0.0.6539 _Category:​EW| _Comments:​EW| vti_author:​SR|VHAMASTER\\vhaisadenkea Event:​SW|3 Task:​SW|28 Keywords:​EW| _Status:​EW| vti_modifiedby:​SR|VHAMASTER\\vhaisadenkea vti_title:​SW| _Author:​SW| ContentType:​LW|Event Documentation ContentTypeId:​SW|0x010100D668484AA1B34F41AB4D0726F82DAB6700EDE95C718EE0834D8C5444536D662663 Pillar:​SW|Project Management " 
+							ows__ModerationStatus=​"3" 
+							ows__Level=​"2" 
+							ows_Last_x0020_Modified=​"3;​#2010-12-27 08:​55:​55" 
+							ows_ID=​"3" 
+							ows_owshiddenversion=​"4" 
+							ows_UniqueId=​"3;​#{D960CAA2-BC6B-48FD-9FEB-1F57D05857B2}​" 
+							ows_FSObjType=​"3;​#0" 
+							ows_Created_x0020_Date=​"3;​#2010-12-21 15:​28:​33" 
+							ows_ProgId=​"3;​#" 
+							ows_FileLeafRef=​"3;​#10 Best Practices - Team Collaboration Sites.docx" 
+							ows_Pillar=​"Project Management" 
+							ows_Modified=​"2010-12-27 08:​55:​54" 
+							ows_FileRef=​"3;​#management/​Library/​10 Best Practices - Team Collaboration Sites.docx" 
+							ows_DocIcon=​"docx" 
+							ows_Editor=​"18;​#Denkers, Adriaan">
+						​</z:row>​
+					</rs:data>​
+				</listitems>​
+			</getlistitemsresult>​
+		</getlistitemsresponse>​
+	</soap:body>​
+</soap:envelope>​

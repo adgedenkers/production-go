@@ -1,0 +1,47 @@
+<!doctype>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>File Upload</title>
+
+	<!--<script src="http://go.va.gov/js/webtoolkit.aim.js" type="text/javascript"></script>-->
+	<script src="http://go.va.gov/js/jquery-1.3.2.min.js" type="text/javascript"></script>
+	<script src="http://go.va.gov/js/date.js" type="text/javascript"></script>
+	
+	
+</head>
+ 
+<body>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#inputId").val(getQuerystring('ID'));
+			$("#listName").val("{E22945A6-2553-49EC-97A7-BD5AD5848B3B}");
+		});
+		
+		function getQuerystring(key, default_)
+		{
+		  if (default_==null) default_=""; 
+		  key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		  var regex = new RegExp("[\\?&]"+key+"=([^&#]*)");
+		  var qs = regex.exec(window.location.href);
+		  if(qs == null)
+		    return default_;
+		  else
+		    return qs[1];
+		}
+		
+	</script>
+ 
+	<form action="http://go.va.gov/apps/oed-portal/mail-call/attach-upload.php"  method="post" enctype="multipart/form-data">
+		<input type="hidden" name="inputId" id="inputId" />
+		<input type="hidden" name="listName" id="listName" />
+		<label for="file">Filename:</label>
+		<input type="file" name="file" id="file" /> 
+		<br />
+		<input type="submit" name="submit" value="Submit" />
+	</form>
+
+ 
+</body>
+</html>

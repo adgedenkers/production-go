@@ -1,0 +1,551 @@
+ <!-- 
+	*** File:   mail-call.html
+	*** Author: Adriaan Denkers (adriaan.denkers@va.gov)
+	*** Office: Office of Enterprise Development
+	***         U.S. Department of Veterans Affairs
+	-->
+	<script type='text/javascript' 
+	        src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'></script>
+
+<link type="text/css" href="http://go.va.gov/js/ui/themes/redmond/ui.all.css" rel="stylesheet" />
+<script type="text/javascript" src="http://go.va.gov/js/ui/ui.core.js"></script>
+<script type="text/javascript" src="http://go.va.gov/js/ui/ui.draggable.js"></script>
+<script type="text/javascript" src="http://go.va.gov/js/ui/ui.resizable.js"></script>
+<script type="text/javascript" src="http://go.va.gov/js/ui/ui.dialog.js"></script>
+<script type="text/javascript" src="http://go.va.gov/js/ui/effects.core.js"></script>
+<script type="text/javascript" src="http://go.va.gov/js/ui/effects.highlight.js"></script>
+<script type="text/javascript" src="http://go.va.gov/js/external/bgiframe/jquery.bgiframe.js"></script>
+
+<script type="text/javascript" src="http://go.va.gov/js/date.js"></script>
+
+<style type="text/css">
+	body { font-size: 62.5%; }
+	label, input { display:block; }
+	input.text { margin-bottom:12px; width:95%; padding: .4em; }
+	fieldset { padding:0; border:0; margin-top:25px; }
+	h1 { font-size: 1.2em; margin: .6em 0; }
+	div#users-contain {  width: 350px; margin: 20px 0; }
+	div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+	div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+	.ui-button { outline: 0; margin:0; padding: .4em 1em .5em; text-decoration:none;  !important; cursor:pointer; position: relative; text-align: center; }
+	.ui-dialog .ui-state-highlight, .ui-dialog .ui-state-error { padding: .3em;  }
+</style>
+
+<script type="text/javascript">
+		
+		var approvalField     = "ADCIO"; // One of these options only: DCIO, CoS, ADCIO
+		var nextMailCallState = "Pending CoS Approval"; 
+																/* One of these options only: 
+																   --------------------------
+																		Pending PM ADCIO Approval
+																		Pending SD ADCIO Approval
+																		Pending SE ADCIO Approval
+																		Pending CoS Approval
+																		Pending DCIO Approval
+																		Approved
+																*/
+		
+		/* DO NOT EDIT BELOW THIS LINE */
+		/*******************************/
+		
+		var approvalFieldName = "";
+		var approvalBookmarkN = "";
+		
+		switch(approvalField)
+		{
+			case "ADCIO":
+			  approvalFieldName = "ADCIO_x0020_Approval_x0020_Date";
+			  break;
+			case "CoS":
+				approvalFieldName = "CoS_x0020_Approval_x0020_Date";
+				break;    
+			case "DCIO":
+				approvalFieldName = "DCIO_x0020_Approval_x0020_Date";
+				break;    
+			default:
+		  	approvalFieldName = "none";
+		}
+		
+		approvalBookmarkN = "SPBookmark_" + approvalFieldName;
+		
+    $(document).ready(function() {
+      
+			var soapCOEnv =
+          "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/'> \
+              <soapenv:Body> \
+                   <GetListItems xmlns='http://schemas.microsoft.com/sharepoint/soap/'> \
+                      <listName>mail_call_actions</listName> \
+                      <viewFields> \
+                          <ViewFields> \
+                  	        <FieldRef Name='Title' /> \
+                            <FieldRef Name='TaskDueDate' /> \
+                            <FieldRef Name='HR_x0020_Action_x0020_Officer' /> \
+                            <FieldRef Name='Correspondence_x0020_Action_x002' /> \
+                  	        <FieldRef Name='Mail_x0020_Call_x0020_Action_x00' /> \
+                  	        <FieldRef Name='OED_x0020_Pillar' /> \
+                  	        <FieldRef Name='ID' /> \
+                         </ViewFields> \
+                      </viewFields> \
+											<query> \
+												<Query> \
+													<Where> \
+														<And> \
+															<Eq> \
+																<FieldRef Name='OED_x0020_Pillar' /> \
+																<Value Type='Text'>SE: Software Engineering</Value> \
+															</Eq> \
+															<Eq> \
+																<FieldRef Name='ContentType' /> \
+																<Value Type='Text'>OED Correspondence Mail Call Action</Value> \
+															</Eq> \
+														</And> \
+													</Where> \
+												</Query> \
+											</query> \
+                  </GetListItems> \
+              </soapenv:Body> \
+          </soapenv:Envelope>";
+
+					var soapHREnv =
+	            "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/'> \
+	                <soapenv:Body> \
+	                     <GetListItems xmlns='http://schemas.microsoft.com/sharepoint/soap/'> \
+	                        <listName>mail_call_actions</listName> \
+	                        <viewFields> \
+	                            <ViewFields> \
+	                    	        <FieldRef Name='Title' /> \
+		                            <FieldRef Name='TaskDueDate' /> \
+		                            <FieldRef Name='HR_x0020_Action_x0020_Officer' /> \
+		                            <FieldRef Name='Correspondence_x0020_Action_x002' /> \
+		                  	        <FieldRef Name='Mail_x0020_Call_x0020_Action_x00' /> \
+		                  	        <FieldRef Name='OED_x0020_Pillar' /> \
+		                  	        <FieldRef Name='ID' /> \
+	                           </ViewFields> \
+	                        </viewFields> \
+													<query> \
+														<Query> \
+															<Where> \
+																<And> \
+																	<Eq> \
+																		<FieldRef Name='OED_x0020_Pillar' /> \
+																		<Value Type='Text'>SE: Software Engineering</Value> \
+																	</Eq> \
+																	<Eq> \
+																		<FieldRef Name='ContentType' /> \
+																		<Value Type='Text'>OED HR Mail Call Action</Value> \
+																	</Eq> \
+																</And> \
+															</Where> \
+														</Query> \
+													</query> \
+	                    </GetListItems> \
+	                </soapenv:Body> \
+	            </soapenv:Envelope>";
+			
+				// Get Correspondence Actions
+        $.ajax({
+            url: "/administration/_vti_bin/lists.asmx",
+            type: "POST",
+            dataType: "xml",
+            data: soapCOEnv,
+            complete: processCOResult,
+            contentType: "text/xml; charset=\"utf-8\"",
+						success: function() {
+							soapCOEnv = "";
+						}
+        });
+
+				// Get HR Actions
+				$.ajax({
+            url: "/administration/_vti_bin/lists.asmx",
+            type: "POST",
+            dataType: "xml",
+            data: soapHREnv,
+            complete: processHRResult,
+            contentType: "text/xml; charset=\"utf-8\"",
+						success: function() {
+							$('#mail-call-actions-lists').fadeIn('slow');
+							soapHREnv = "";
+						}
+        });
+
+				// Dialog Functions *******************************************
+
+				// Setup vars
+				var commentField = $("#commentField"),
+					approvalNotes = $("#approvalNotes"),
+					allFields = $([]).add(commentField).add(approvalNotes),
+					tips = $("#validateTips");
+
+				// Function: Update Validate Tips field	
+				function updateTips(t) {
+					tips.text(t).effect("highlight",{},1500);
+				}
+
+				// Function: Check Length
+				function checkLength(o,n,min,max) {
+
+					if ( o.val().length > max || o.val().length < min ) {
+						o.addClass('ui-state-error');
+						updateTips("Length of " + n + " must be between "+min+" and "+max+".");
+						return false;
+					} else {
+						return true;
+					}
+
+				}
+
+				// Function: Check Regexp
+				function checkRegexp(o,regexp,n) {
+
+					if ( !( regexp.test( o.val() ) ) ) {
+						o.addClass('ui-state-error');
+						updateTips(n);
+						return false;
+					} else {
+						return true;
+					}
+
+				}
+
+				// Function: Setup Dialog
+				$("#dialog").dialog({
+					bgiframe: true,
+					autoOpen: false,
+					width: 800,
+					modal: true,
+					close: function() {
+						// Clear the form fields
+						$("#currentActionId").val("");
+						$("#commentField").val("");
+						$("#approvalNotes").val("");
+						// Clear the item details div
+						
+					}
+				});
+				
+				var currentUserName = $("#zz9_Menu").text().split("Welcome ")[1];	
+				$("#commentUser").append(currentUserName);
+				$("#approveUser").append(currentUserName);
+				
+
+    }); // End Document.Ready()
+
+    function processCOResult(xData, status) {
+				var thHtml = "<tr><th></th><th>Title</th><th>Due Date</th><th>Pillar</th></tr>"
+				$("#coActions").append(thHtml);
+				alert("co actions adding - about to loop");
+        $(xData.responseXML).find("z\\:row").each(function() {
+							alert("item id: " + $(this).attr("ows_ID"));
+							var trHtml = "<tr><td><a onclick=\"javascript:loadDialog(" + $(this).attr("ows_ID") + ");\" class='ui-button ui-state-default ui-corner-all'>View</a></td><td>" + $(this).attr("ows_Title") + "</td><td>" + $(this).attr("ows_TaskDueDate") + "</td><td>" + $(this).attr("ows_OED_x0020_Pillar") + "</td></tr>";
+	            $("#coActions").append(trHtml);
+
+        });
+
+    }
+
+		function processHRResult(xData, status) {
+				var thHtml = "<tr><th></th><th>Title</th><th>Due Date</th><th>Pillar</th></tr>"
+				$("#hrActions").append(thHtml);
+				
+        $(xData.responseXML).find("z\\:row").each(function() {
+
+							var trHtml = "<tr><td><a onclick=\"javascript:loadDialog(" + $(this).attr("ows_ID") + ");\" class='ui-button ui-state-default ui-corner-all'>View</a></td><td>" + $(this).attr("ows_Title") + "</td><td>" + $(this).attr("ows_TaskDueDate") + "</td><td>" + $(this).attr("ows_OED_x0020_Pillar") + "</td></tr>";
+	            $("#hrActions").append(trHtml);
+
+        });
+
+				$('#mail-call-actions-lists').fadeIn('slow');
+
+    }
+
+		function loadDialog(id) {
+			//console.log("function: loadDialog: Firing");
+			//console.log("function: loadDialog: id = " + id);
+			
+			//$("actionDetails").empty().html('<img src="http://vaww.oed.portal.va.gov/SiteCollectionImages/ajax-loader.gif" />');
+			
+			//console.log("function: loadDialog: currentActionId = " + $("#currentActionId").val());
+			$("#currentActionId").val("");
+			$("#currentActionId").val(id);
+			//console.log("function: loadDialog: currentActionId = " + $("#currentActionId").val());
+			
+			var actionDetailPage = "/administration/Lists/mail_call_actions/DispForm.aspx?ID=" + $("#currentActionId").val();
+			//console.log("function: loadDialog: actionDetailPage = " + actionDetailPage);
+			//console.log("function: loadDialog: Fire jLoadMe");
+			jLoadMe(actionDetailPage);
+			loadAttachmentForm("http://go.va.gov/apps/oed-portal/mail-call/attach-form.html?ID=" + $("#currentActionId").val());
+			
+			$('#dialog').dialog('open');
+			
+			//console.log("function: loadDialog: Finished - Dialog Open");
+		}
+		
+		function jLoadMe(t) {//load content
+			//console.log("function: jLoadMe firing...");
+			$("#actionDetails").load(t+" .ms-formtable", function() {
+				$("#actionDetails h3").css("font-size","8pt");
+			});
+			//console.log("function: jLoadMe finished...");
+		}
+		
+		function loadAttachmentForm(t) {
+			//console.log("loading attachment form");
+			$("#fileUploads").load(t, function(){
+				$("#fileUploads h3").css("font-size","8pt");
+			});
+			//console.log("finished loading attachment form");
+		}
+		
+		function AddActionComment(comment, actionId) {
+				//console.log("function: AddActionComment: Fired");
+				var batch =	"<Batch OnError='Continue'> \
+			   		        	<Method ID='1' Cmd='Update'> \
+				                <Field Name='ID'>" + actionId + "</Field> \
+				                <Field Name='History'>" + comment + "</Field> \
+			                </Method> \
+		                </Batch>";
+
+		    var soapEnv =
+		        "<?xml version=\"1.0\" encoding=\"utf-8\"?> \
+		        <soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \
+		            xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" \
+		            xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"> \
+		          <soap:Body> \
+		            <UpdateListItems xmlns=\"http://schemas.microsoft.com/sharepoint/soap/\"> \
+		              <listName>mail_call_actions</listName> \
+		              <updates> \
+		                " + batch + "</updates> \
+		            </UpdateListItems> \
+		          </soap:Body> \
+		        </soap:Envelope>";
+
+		    $.ajax({
+		        url: "http://vaww.oed.portal.va.gov/administration/_vti_bin/lists.asmx",
+		        beforeSend: function(xhr) {
+		            xhr.setRequestHeader("SOAPAction",
+		            "http://schemas.microsoft.com/sharepoint/soap/UpdateListItems");
+								// display loading graphic
+								$("actionDetails").empty().html('<img src="http://vaww.oed.portal.va.gov/SiteCollectionImages/ajax-loader.gif" />');
+		        },
+		        type: "POST",
+		        dataType: "xml",
+		        data: soapEnv,
+		        complete: processCommentAdd,
+		        contentType: "text/xml; charset=utf-8",
+						success: function() {
+							//console.log("function: AddActionComment: POST Complete: Success")
+							$("#commentField").val("");
+							//$('#actionDetails').fadeOut('slow');
+							//$("#actionDetails").empty();
+							var actionDetailPage = "/administration/Lists/mail_call_actions/DispForm.aspx?ID=" + actionId;
+							jLoadMe(actionDetailPage);							
+							//$('#actionDetails').fadeIn('slow');
+							soapEnv = "";
+							batch = "";
+							//console.log("function: AddActionComment: ajax finished");
+							
+						}
+		    });
+				
+				//console.log("function: AddActionComment: Finished");
+		}
+
+		function AddApproval(comment, actionId) {
+				//console.log("function: AddApproval: Fired");
+				
+				var currentDate = new Date().toISOString();
+				//console.log("function: AddApproval: currentDate = " + currentDate);
+				//console.log("function: AddApproval: comment.length = " + comment.length);
+				
+				if(comment.length > 0) {
+					var batch =	"<Batch OnError='Continue'> \
+				   		        	<Method ID='1' Cmd='Update'> \
+					                <Field Name='ID'>" + actionId + "</Field> \
+					                <Field Name='History'>" + comment + "</Field> \
+													<Field Name='" + approvalFieldName + "'>" + currentDate + "</Field> \
+				                </Method> \
+			                </Batch>";
+				} else {
+					var batch =	"<Batch OnError='Continue'> \
+				   		        	<Method ID='1' Cmd='Update'> \
+					                <Field Name='ID'>" + actionId + "</Field> \
+					                <Field Name='" + approvalFieldName + "'>" + currentDate + "</Field> \
+				                </Method> \
+			                </Batch>";
+				}
+
+		    var soapEnv =
+		        "<?xml version=\"1.0\" encoding=\"utf-8\"?> \
+		        <soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \
+		            xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" \
+		            xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"> \
+		          <soap:Body> \
+		            <UpdateListItems xmlns=\"http://schemas.microsoft.com/sharepoint/soap/\"> \
+		              <listName>mail_call_actions</listName> \
+		              <updates> \
+		                " + batch + "</updates> \
+		            </UpdateListItems> \
+		          </soap:Body> \
+		        </soap:Envelope>";
+
+		    $.ajax({
+		        url: "http://vaww.oed.portal.va.gov/administration/_vti_bin/lists.asmx",
+		        beforeSend: function(xhr) {
+		            xhr.setRequestHeader("SOAPAction",
+		            "http://schemas.microsoft.com/sharepoint/soap/UpdateListItems");
+		        },
+		        type: "POST",
+		        dataType: "xml",
+		        data: soapEnv,
+		        complete: processCommentAdd,
+		        contentType: "text/xml; charset=utf-8",
+						success: function() {
+							
+							$("#approvalNotes").val("");
+							//$('#actionDetails').fadeOut('slow');
+							//$("#actionDetails").empty();
+							var actionDetailPage = "/administration/Lists/mail_call_actions/DispForm.aspx?ID=" + actionId;
+							jLoadMe(actionDetailPage);
+							//$('#actionDetails').fadeIn('slow');
+							
+						}
+		    });
+				
+				//console.log("function: AddApproval: Finished");
+				
+		}
+
+
+		function processCommentAdd(xData, status) {
+		    //alert(status);
+		}
+		
+</script>
+
+<!-- Styles -->
+<style>
+	#coActions table, #hrActions table {
+		border-collapse: collapse;
+		width: 50%;
+		margin: 24px;
+		font-size: 1.1em;
+		background-color: #fff;
+	}
+
+	#coActions th,#hrActions th {
+		background: #1E2D54;
+		color: #fff;
+		font-weight: bold;
+		padding: 2px 11px;
+		text-align: left;
+		border-right: 1px solid #fff;
+		line-height: 1.5;
+	}
+
+	#coActions td, #hrActions td {
+		padding: 2px 11px;
+		border-bottom: 0px solid #95bce2;
+		vertical-align: top;
+		text-align:left;
+	}
+
+	#coActions td *, #hrActions td * {
+		padding: 2px 11px;
+	}
+
+	#coActions tr.alt td, #hrActions tr.alt td {
+		background: #ecf6fc;
+	}
+
+	#coActions tr.over td, #coActions tr:hover td, #hrActions tr.over td, #hrActions tr:hover td {
+		background: #bcd4ec;
+	}
+	
+	#coActions a, #hrActions a {
+		text-decoration:underline;
+		color: red;
+	}
+
+	#mail-call-actions-lists {
+		display: none;
+	}
+	
+	#formsControls {
+		width: 250px;
+		font-size: 12px;
+	}
+	
+	#actionDetails {
+		width: 500px;
+	}
+	
+	#approvalSection {
+		/*display: none;*/
+	}
+	
+</style>
+
+<!-- HTML Forms -->
+<div id="page-contents">
+	<div id="dialog" title="Edit/View Mail Call Action">
+	<input type="hidden" id="currentActionId" />
+	<input type="hidden" id="currentSupportField" />
+		<table>
+			<tr>
+				<td valign="top">
+					<div id="formsControls">
+						<p>
+							<h3>Comments</h3>
+							<label class="ms-standardheader" for="commentUser">Name</label>
+							<div id="commentUser"></div>
+							<label class="ms-standardheader" for="commentField">Comments</label>
+							<textarea id="commentField" name="commentField" cols="25" rows="4" class="text ui-widget-content ui-corner-all"></textarea>
+							<input id="addCommentButton" onclick="javascript:AddActionComment($('#commentField').val(), $('#currentActionId').val());" type="button" value="Save Comments" class="ui-button ui-state-default ui-corner-all" />
+						</p>
+						<p>
+							<h3>Attachments</h3>
+							<iframe src="http://go.va.gov/apps/oed-portal/mail-call/attach-form.html?ID=2" id="attachmentIframe" width="100%" height="100%" border="0">
+							  <p>Your browser does not support iframes.</p>
+							</iframe>
+						</p>
+						<p id="approvalSection">
+							<h3>Approval</h3>
+				      <label class="ms-standardheader" for="commentUser">Name</label>
+							<div id="approveUser"></div>
+							<label class="ms-standardheader" for="approvalNotes">Approval Comments</label>
+							<textarea id="approvalNotes" name="approvalNotes" cols="25" rows="4" class="text ui-widget-content ui-corner-all"></textarea>
+							<input id="addApprovalButton" onclick="javascript:AddApproval($('#approvalNotes').val(), $('#currentActionId').val());" type="button" value="Approve"  class="ui-button ui-state-default ui-corner-all" />
+						</p>
+						<p id="fileUploads">
+							
+						</p>
+					</div>
+				</td>
+				<td valign="top">
+					<div id="actionDetails" align="center"><img src="http://vaww.oed.portal.va.gov/SiteCollectionImages/ajax-loader.gif" /></div>
+				</td>
+			</tr>
+		</table>
+		
+	</div>
+
+	<table id='mail-call-actions-lists'>
+		<tr>
+			<td>
+				<h3>Correspondence Mail Call Actions</h3>
+			</td>
+			<td>
+				<h3>HR Mail Call Actions</h3>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<table id="coActions"></table>
+			</td>
+			<td valigh="top">
+				<table id="hrActions"></table>
+			</td>
+		</tr>
+	</table>
+</div>

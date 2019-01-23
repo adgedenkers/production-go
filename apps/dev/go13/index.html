@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>go13</title>
+    <meta name="description" content="go13 is a url management system, providing shortened urls, and url tagging services.">
+    <meta name="author" content="@adge_denkers">
+
+    <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      /* Override some defaults */
+      html, body {
+        background-color: #eee;
+      }
+      body {
+        padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+      }
+      .container > footer p {
+        text-align: center; /* center align it with the container */
+      }
+      .container {
+        width: 820px; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
+      }
+
+      /* The white background content wrapper */
+      .content {
+        background-color: #fff;
+        padding: 20px;
+        margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+        -webkit-border-radius: 0 0 6px 6px;
+           -moz-border-radius: 0 0 6px 6px;
+                border-radius: 0 0 6px 6px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      }
+
+      /* Page header tweaks */
+      .page-header {
+        background-color: #f5f5f5;
+        padding: 20px 20px 10px;
+        margin: -20px -20px 20px;
+      }
+
+      /* Styles you shouldn't keep as they are for displaying this base example only */
+      .content .span10,
+      .content .span4 {
+        min-height: 500px;
+      }
+      /* Give a quick and non-cross-browser friendly divider */
+      .content .span4 {
+        margin-left: 0;
+        padding-left: 19px;
+        border-left: 1px solid #eee;
+      }
+
+      .topbar .btn {
+        border: 0;
+      }
+
+    </style>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/openid.css" />
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="#">go<i>VA</i></a>
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <form action="" class="pull-right">
+            <input class="input-small" type="text" placeholder="Username">
+            <input class="input-small" type="password" placeholder="Password">
+            <button class="btn" type="submit">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+					<img src="images/VA_Seal_125.png" width="125" height="125" alt="VA Seal">
+          <h1>welcome to go<i>VA</i> <small>The Official VA URL Management System</small></h1>
+        </div>
+        <div class="row">
+          <div class="span10">
+            <h2>Top 10 URLs</h2>
+						<form class="openid" method="post" action="index.html?ReturnUrl=index_container-app.html"> 
+						  <div><ul class="providers"> 
+						  <li class="openid" title="OpenID"><img src="images/openid/openidW.png" alt="icon" /> 
+						  <span><strong>http://{your-openid-url}</strong></span></li> 
+						  <li class="direct" title="Google"> 
+								<img src="images/openid/googleW.png" alt="icon" /><span>https://www.google.com/accounts/o8/id</span></li> 
+						  <li class="direct" title="Yahoo"> 
+								<img src="images/openid/yahooW.png" alt="icon" /><span>http://yahoo.com/</span></li> 
+						  <li class="username" title="AOL screen name"> 
+								<img src="images/openid/aolW.png" alt="icon" /><span>http://openid.aol.com/<strong>username</strong></span></li> 
+						  <li class="username" title="MyOpenID user name"> 
+								<img src="images/openid/myopenid.png" alt="icon" /><span>http://<strong>username</strong>.myopenid.com/</span></li> 
+						  <li class="username" title="Flickr user name"> 
+								<img src="images/openid/flickr.png" alt="icon" /><span>http://flickr.com/<strong>username</strong>/</span></li> 
+						  <li class="username" title="Technorati user name"> 
+								<img src="images/openid/technorati.png" alt="icon" /><span>http://technorati.com/people/technorati/<strong>username</strong>/</span></li> 
+						  <li class="username" title="Wordpress blog name"> 
+								<img src="images/openid/wordpress.png" alt="icon" /><span>http://<strong>username</strong>.wordpress.com</span></li> 
+						  <li class="username" title="Blogger blog name"> 
+								<img src="images/openid/blogger.png" alt="icon" /><span>http://<strong>username</strong>.blogspot.com/</span></li> 
+						  <li class="username" title="LiveJournal blog name"> 
+								<img src="images/openid/livejournal.png" alt="icon" /><span>http://<strong>username</strong>.livejournal.com</span></li> 
+						  <li class="username" title="ClaimID user name"> 
+								<img src="images/openid/claimid.png" alt="icon" /><span>http://claimid.com/<strong>username</strong></span></li> 
+						  <li class="username" title="Vidoop user name"> 
+								<img src="images/openid/vidoop.png" alt="icon" /><span>http://<strong>username</strong>.myvidoop.com/</span></li> 
+						  <li class="username" title="Verisign user name"> 
+								<img src="images/openid/verisign.png" alt="icon" /><span>http://<strong>username</strong>.pip.verisignlabs.com/</span></li> 
+						  </ul></div> 
+						  <fieldset> 
+						  <label for="openid_username">Enter your <span>Provider user name</span></label> 
+						  <div><span></span><input type="text" name="openid_username" /><span></span> 
+						  <input type="submit" value="Login" /></div> 
+						  </fieldset> 
+						  <fieldset> 
+						  <label for="openid_identifier">Enter your <a class="openid_logo" href="http://openid.net">OpenID</a></label> 
+						  <div><input type="text" name="openid_identifier" /> 
+						  <input type="submit" value="Login" /></div> 
+						  </fieldset> 
+						</form>
+          </div>
+          <div class="span4">
+            <h3>Secondary content</h3>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p><img src="images/VA_Signature_Blue_Web_1-75in_72dpi.gif" width="126" height="21" alt="VA Signature"></p>
+      </footer>
+
+    </div> <!-- /container -->
+    
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>-->
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/sammy-latest.min.js"></script>
+    <script src="js/mustache.js"></script>
+    <script src="js/jquery.qrcode.min.js"></script>
+    <script src="js/json2.js"></script>
+    <script src="js/amplify.min.js"></script>
+    <script src="js/bootstrap-alerts.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tabs.js"></script>
+    <script src="js/bootstrap-twipsy.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+
+    <script type="text/javascript" src="js/jquery.openid.js"></script>
+    <script type="text/javascript">  $(function() { $("form.openid:eq(0)").openid(); });</script>
+    
+
+    
+  </body>
+</html>

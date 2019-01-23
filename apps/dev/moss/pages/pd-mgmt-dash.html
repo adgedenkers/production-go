@@ -1,0 +1,154 @@
+<%@ Page Language="C#" MasterPageFile="~masterurl/default.master" %>
+
+<asp:Content runat="server" ContentPlaceHolderID="PlaceHolderAdditionalPageHead">
+
+    <script type="text/javascript" src="/js/jquery.js"></script>
+
+    <script>
+        $(document).ready(function() {
+        	// When the page has loaded, execute...
+					// ======================================
+        	
+        	// == Build the WS URL
+					// ======================================
+					// Build the URL of the Lists.asmx web service.
+					// This is done by stripping the last two parts (/doclib/page) of the URL.
+					var hrefParts = window.location.href.split('/');
+					var wsUrl = "";
+					for (i = 0; i < (hrefParts.length - 2); i++) {
+						if (i > 0)
+							wsUrl += "/";
+					  wsUrl += hrefParts[i];
+					}
+					// ======================================
+					wsUrl += "/_vti_bin/lists.asmx";
+					// ======================================
+          
+          // Load all documents for an event
+					// ======================================
+          loadDocuments("OI%26T%20Event%20for%20Something%20%28Austin%2C%20TX%29", wsUrl);
+					// ======================================
+
+					//$("#newTaskButton").click(function() {
+					//	CreateNewItem($("#newTaskTitle").val());
+					//});
+
+					// ======================================            
+        	// end page load
+        });
+        
+        function loadDocuments(eventTitle, wsUrl) {
+        	// The CAML to get all documents for an event.
+        	var batch = 
+        	"<Query> \
+        		<Where> \
+        		   <Eq> \
+        		     <FieldRef Name='Event' /> \
+        		      <Value Type='Text'>" + eventTitle + "</Value> \
+        		  </Eq> \
+        		</Where> \
+        		<ViewAttributes Scope='Recursive' /> \
+        	</Query>";
+        	
+        	// The SOAP Envelope
+        	var soapEnv = 
+        	"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/'> \
+        		<soapenv:Body> \
+        			<GetListItems xmlns='http://schemas.microsoft.com/sharepoint/soap/'> \
+        				<listName>Library</listName> \
+        				<viewFields> \
+        					<ViewFields> \
+        						<FieldRef Name='Title' /> \
+        						<FieldRef Name='Event' /> \
+        					</ViewFields> \
+        				</viewFields> \
+        				<QueryOptions> \
+        				   <MeetingInstanceID>-1</MeetingInstanceID> \
+        				   <ViewAttributes Scope='RecursiveAll' /> \
+        				</QueryOptions> \
+        			</GetListItems> \
+        		</soapenv:Body> \
+        	</soapenv:Envelope>";
+        	
+        	$.ajax({
+						url: wsUrl,
+						type: "POST",
+						dataType: "xml",
+						data: soapEnv,
+						timeout: 10000,
+						complete: processDocumentResult,
+						contentType: "text/xml; charset=\"utf-8\""
+					});
+        	
+        }
+        
+        function processDocumentResult(xData, status) {
+        	console.log("begin processing documents: " + status);
+					
+					var xDoc = xData.responseText;
+					//console.log(xData.responseXML);
+										
+					
+					$(xDoc).find("z\\:row").each(function() {
+						console.log($(this).attr("ows_FileRef"));
+						//var liHtml = "<li>" + $(this).attr("ows_FileRef") + "</li>";
+						//$("#doc-ul").append(liHtml);
+						var tblHtml = "<tr>";
+						tblHtml = tblHtml + "<td><img src='/SiteCollectionImages/office-icons/" + $(this).attr("ows_DocIcon") + ".gif' height='16' alt='" + $(this).attr("ows_DocIcon") + " file icon' /></td>";
+						var urlArry = $(this).attr("ows_FileRef").split("#");
+						var namArry = $(this).attr("ows_FileLeafRef").split("#");
+						tblHtml = tblHtml + "<td><a href='/" + urlArry[1] + "'>" + namArry[1] + "</a></td>";
+						tblHtml = tblHtml + "<td></td>";
+						tblHtml = tblHtml + "</tr>";
+						$("#doc-tbl").append(tblHtml);
+						
+					});
+					
+					console.log("end processing documents");
+				}
+        
+    </script>
+
+<!--[if gte mso 9]><xml>
+<o:CustomDocumentProperties>
+<o:PublishingContactPicture msdt:dt="string">, </o:PublishingContactPicture></o:CustomDocumentProperties></xml><![endif]-->
+
+</asp:Content>
+
+
+<asp:Content runat="server" ContentPlaceHolderID="PlaceHolderMain">
+		<h3>Documents</h3>
+		<table id="doc-tbl">
+		</table>
+		<ul id="doc-ul"></ul>
+		
+		<h3>Action Items</h3>
+		
+		
+		<!--
+    Task Title:
+    <input id="newTaskTitle" type="text" />
+    <input id="newTaskButton" type="button" value="Create Task" />
+    <h5>
+        Response:
+        <label id="responseStatus">
+            N/A
+        </label>
+    </h5>
+    <p id="responseXML">
+    </p>
+    <p>
+        A sample page using jQuery to call the SharePoint Lists web service.<br />
+        Created by <a href="http://weblogs.asp.net/jan">Jan Tielens</a>
+    </p>
+    -->
+    
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea">
+	Management Dashboard
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="PlaceHolderPageTitle">
+    PD Management Dashboard
+</asp:Content>

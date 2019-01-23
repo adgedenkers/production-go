@@ -1,0 +1,1684 @@
+
+/*
+
+DarkGrey:   #2E3A3F
+LightGrey:  #3D4B51
+
+Dark bluew background: #1E2D54
+
+Files:
+
+/_layouts/images/va/clr_pxl.gif
+/_layouts/images/va/banner.jpg
+
+*/
+
+/* 
+===========================
+Page editing rows
+===========================
+*/
+
+/* get rid of the green gradient */
+.ms-consolestatusmajorframe{
+background-color::#E8E8FF;
+/*background-color:#fff699;
+background:url('/_layouts/images/cnspgrdn.gif');*/
+background-image:none;
+}
+
+
+/* 
+===========================
+date picker
+===========================
+*/
+.ms-picker-table{
+background-color:#f2f8ff;
+}
+
+
+
+/* 
+===========================
+Site Actions button
+===========================
+*/
+ 
+.ms-siteaction,.ms-siteaction a{
+font:8pt tahoma;
+/* font-weight:bold; */
+font-weight:normal;
+color:#666666;
+text-decoration:none;
+}
+
+table.ms-siteaction td.ms-siteaction{
+border-right:solid 1px #bfbfbf;
+}
+
+table.ms-siteaction td.ms-siteaction div{
+padding:3px 8px 3px 8px;
+border-right:solid 1px #FFFFFF;
+}
+
+.ms-siteactionsmenu{
+white-space:nowrap;
+font:8pt tahoma;
+padding:0;
+border:none;
+cursor:pointer;
+}
+
+.ms-siteactionsmenu div div div{
+/*background-image:url("/_layouts/images/siteactionsmenugrad.gif");
+background-repeat:repeat-x; 
+background-image:url('/_layouts/images/va/siteActionsGradient.gif');*/
+background-image:none;
+background-repeat:repeat-x;
+border-top:0px solid #ffffff;
+border-left:1px solid #ffffff;
+border-right:1px solid #ffffff;
+/*
+border-top:1px solid #6593cf;
+border-left:1px solid #6593cf;
+border-right:1px solid #6593cf; */
+/*background-color:#6593cf;
+padding:1px 4px 3px 10px;
+background-color:#2E3A3F;*/
+background-color:transparent;
+padding:3px 4px 3px 10px;
+}
+.ms-siteactionsmenu div div div a{
+color:#FFFFFF;
+/* font-weight:bold; */
+font-weight:normal;
+}
+.ms-siteactionsmenu div div div.ms-siteactionsmenuhover{
+/*background-image:url("/_layouts/images/siteactionsmenuhovergrad.gif"); 
+background-repeat:repeat-x;
+background-image:url('/_layouts/images/va/siteActionsGradient.gif');*/
+background-image:none;
+/*
+border-top:1px solid #6593cf;
+border-left:1px solid #6593cf;
+border-right:1px solid #6593cf;*/
+border-top:0px solid #ffffff;
+border-left:1px solid #ffffff;
+border-right:1px solid #ffffff;
+
+/*background-color:#ffa521; */
+background-color:#3D4B51; 
+}
+
+
+/* 
+==================================
+Global bread crumb navigation
+==================================
+*/
+
+
+.ms-globalbreadcrumb{
+font-size:8pt;
+text-align:right;
+/*background-color:#6B1424;
+background-color:#DDEBFF; 
+background-color:#ebf3ff; */
+background-color:#2E3A3F;
+padding:2px 10px 2px 5px;
+/* color:#ffffff; */
+}
+
+.ms-globalbreadcrumb,.ms-globalbreadcrumb a{
+text-decoration:none;
+color:#ffffff;
+/*background-color:#6B1424;
+ color:#666666; */
+}
+.ms-globalbreadcrumb a:hover{
+text-decoration:underline;
+color:#ffffff;
+/* color:#000000; */
+}
+
+.ms-globallinks{
+font-size:8pt;
+/*background:transparent; */
+font-family:tahoma;
+color:#ffffff; 
+}
+.ms-globallinks,.ms-globallinks a{
+color:#ffffff; 
+text-decoration:none;
+font-family:tahoma;
+}
+
+.ms-HoverCellInActive,.ms-SpLinkButtonInActive
+{
+border:none;
+margin:0px;
+/*margin:1px;
+color:#4c4c4c;*/
+color:#ffffff;
+vertical-align:top;
+background-color:transparent;
+/*background-color:#2E3A3F;*/
+}
+.ms-HoverCellActive,.ms-SpLinkButtonActive
+{
+/*border:#6f9dd9 1px solid; */
+border-width:0px;
+vertical-align:top;
+/* background-color:#ffbb47; 
+background-color:#2E3A3F;
+/*background-image:url("/_layouts/images/menubuttonhover.gif"); */
+background-image:none;
+background-color:transparent;
+
+}
+.ms-HoverCellActiveDark
+{
+/* background-image:url("/_layouts/images/menubuttonhover.gif"); */
+background-image:none;
+/*border:solid 1px #868686; */
+border-width:0px;
+background-color:#2E3A3F;
+vertical-align:top;
+}
+
+.ms-SpLinkButtonActive a,.ms-SpLinkButtonActive a:hover{
+/* color:#000000; */
+color:#ffffff;
+/*text-decoration:none; */
+text-decoration:underline;
+}
+.ms-SPLink
+{
+font-family:verdana;
+font-size:8pt;
+/*color:#003399; */
+color:#ffffff;
+}
+
+/* 
+controls links colors for My Links, Welcome User, Page editing links 
+*/
+.ms-SPLink A:link,.ms-SPLink A:visited
+{
+/* color:#2A4666; 
+color:#ffffff;*/
+text-decoration:none;
+color:#cccccc;
+}
+.ms-SPButton
+{
+font-family:Verdana;
+font-size:8pt;
+}
+
+
+
+/* 
+============================
+Top Nav Menu
+============================
+*/
+
+.ms-topnavContainer{
+border-width:0px;
+text-align:center;
+/* border-left:solid 1px #c2dcff; */
+}
+.ms-topnav{
+border:0px;
+/*padding:5px 10px 5px 10px;*/
+padding:2px 2px 2px 2px;
+
+
+text-align:center;
+border-right:solid 1px #ffffff;
+
+/* border-right:solid 1px #99CCFF;
+border:solid 1px #c2dcff;
+border-left:solid 1px #ffffff;
+border-bottom:none; */
+/* background-image:url("/_layouts/images/topnavunselected.gif");
+background-repeat:repeat-x; */
+background-image:none;
+font-family:Tahoma;
+font-size:8pt;
+background-color:#2E3A3F;
+/* background-color:#e2efff; 
+color:#3764a0;*/
+color:white;
+}
+.ms-topnav a{
+display:block;
+white-space:nowrap;
+/*padding:1px 8px 0px 8px; 
+height:18px;*/
+}
+.ms-topnavselected{
+text-align:center;
+/*color:#003399;
+ background:url("/_layouts/images/topnavselected.gif");
+background-repeat:repeat-x; */
+background-image:none;
+/*font-weight:bold;
+ border:solid 1px #79a7e3; */
+font-weight:normal;
+border:0px;
+border-right:solid 1px #ffffff;
+/* border-right:solid 1px #99CCFF;
+background-color:#6593cf; */
+background-color:#3D4B51;
+}
+.ms-topnavselected a{
+/* color:#003399; */
+color:white;
+}
+.ms-topNavHover{
+text-align:center;
+/* background-image:url("/_layouts/images/topnavhover.gif"); */
+background-image:none;
+background-color:#3D4B51;
+/* background-color:#ffe6a0;
+border:solid 1px #c2a770; */
+border:0px;
+border-right:solid 1px #ffffff;
+/*
+border-bottom-width:0px;
+ color:#000000; */
+color:white;
+}
+.ms-topNavHover a{
+/* color:#000000; */
+color:white;
+}
+.ms-topnav img{
+position:relative;
+left:-6px;
+}
+.ms-topNavFlyOutsContainer
+{
+/*border:solid 1px #99CCFF; */
+border-width:0px;
+}
+.ms-topNavFlyOuts{
+
+/* background-color:#F2F8FF; */
+background-color:#3D4B51;
+font-family:Tahoma;
+font-size:8pt;
+color:white;
+}
+.ms-topNavFlyOuts a{
+display:block;
+*width:120px;
+min-width:120px;
+/* color:#3764a0; */
+color:white;
+padding:4px 8px 4px 8px;
+}
+.ms-topNavFlyOutsHover{
+/* background-color:#ffe6a0; */
+background-color:#576A73;
+/*color:#000000; */
+color:white;
+}
+
+/* 
+============================
+Search control
+============================
+*/
+
+.ms-sbtable{
+color:#000000;
+font-family:Verdana;
+font-size:0.7em;
+font-style:normal;
+font-weight:normal;
+float:right;
+}
+
+.ms-sblink a:link,.ms-sblink a:visited{
+font-family:Tahoma;
+font-size:8pt;
+/*color:#666666;*/
+color:white;
+text-decoration:none;
+padding-left:4px;
+}
+
+.ms-sblink a:hover{
+/*color:#000000; */
+color:white;
+text-decoration:underline;
+}
+
+td.ms-sblink{
+padding-right:1px;
+border:none;
+}
+
+.ms-sbLastCell{
+padding-right:3px;
+}
+
+
+/* 
+============================
+QUICK LAUNCH LEFT SIDE MENU
+============================
+*/
+
+.ms-quicklaunchouter{
+margin:0px 0px 0px 0px;
+border-width:0px;
+}
+
+.ms-quicklaunchheader{
+padding:8px 4px 8px 4px;
+font-weight:normal;
+color:white;
+/*background-image:url("/_layouts/images/quickLaunchHeader.gif");
+background-repeat:repeat-x;
+background-image:url("/_layouts/images/va/quickLaunchHeaderLong.gif");
+background-repeat:repeat-x;*/
+background-image:none;
+background-color:#2E3A3F;
+border-width:0px;
+font-size:8pt;
+}
+.ms-quicklaunchheader a,.ms-unselectednav a{
+color:white;
+text-decoration:none;
+}
+.ms-quicklaunchheader a:hover{
+color:white;
+text-decoration:underline;
+}
+
+
+/* this also affects the date picker */
+.ms-quickLaunch{
+/*border:solid 1px #cccccc; */
+border-width:0px;
+font-size:8pt;
+font-family:tahoma;
+line-height:9pt;
+color:white;
+/*background-color:#f2f8ff; */
+background-color:#2E3A3F;
+}
+
+/*
+.ms-quickLaunch{
+border:solid 1px #2E3A3F;
+border-bottom:solid 1px #2E3A3F;
+font-size:8pt;
+font-family:tahoma;
+line-height:10pt;
+background-color:#f2f8ff;
+}
+*/
+
+.ms-quicklaunch table.ms-navheader td,.ms-navheader2 td,.ms-quicklaunch span.ms-navheader{
+background-color:#2E3A3F;
+color:white;
+border-width:0px;
+/*background-color:#d6e8ff;
+border-bottom:solid 1px red;*/
+padding:8px 4px 8px 4px;
+font-size:8pt;
+}
+
+
+.ms-quicklaunch table.ms-selectednav{
+border-width:0px;
+color:white;
+/*border:solid 1px #CCCCCC;
+background-image:url("/_layouts/images/selectednav.gif");
+background-repeat:repeat-x;*/
+/*background-color:#ffe6a0;
+background-image:none; */
+background-color:#3D4B51;
+margin:2px;
+margin-bottom:0;
+width:97%;
+
+}
+
+
+.ms-quicklaunch table.ms-selectednav td{
+
+background:#3D4B51 url('2/selectednavbullet.gif') no-repeat left top;
+border-width:0px;
+/*border:solid 1px #ffffff;
+border-bottom:solid 1px #CCCCCC;
+background-image:none;*/
+padding:0px 4px 1px 12px;
+margin:0px;
+color:white;
+
+}
+
+table.ms-selectednav td a.ms-selectednav{
+/*background:none;
+color:#000000; */
+color: white;
+}
+
+.ms-quicklaunch table.ms-selectednavheader td{
+color:white;
+width:100%;
+background-color:#3D4B51;
+
+/*
+background-color:#ffe6a0;
+background-image:url("/_layouts/images/selectednav.gif");
+background-repeat:repeat-x; */
+background-image:none;
+padding-top:2px;
+padding-bottom:2px;
+border-width:0px;
+border-bottom:solid 1px #CCCCCC;
+/*padding:1px 6px 3px 6px;*/
+padding:3px 3px 3px 3px;
+
+}
+
+table.ms-navheader td{
+background-image:none;
+color:#ffffff !important;
+
+
+}
+.ms-navheader a,.ms-navheader2 a{
+font-weight:normal;
+/*
+ color:#003399; */
+color:white;
+text-decoration:none;
+}
+.ms-navheader a:hover,.ms-navheader2 a:hover{
+/* color:#000000; */
+color:#ffffff !important;
+text-decoration:underline;
+}
+.ms-navItem a{
+color:white;
+text-decoration:none;
+}
+.ms-navItem a:visited{
+color:white !important;
+/* text-decoration:none; */
+}
+.ms-navItem a:hover{
+/* color:#000000;  */
+color:white;
+text-decoration:underline;
+}
+
+
+.ms-navline{
+/* border-bottom:1px solid #cccccc; */
+border-width:0px;
+
+}
+
+table.ms-navitem td,span.ms-navitem{
+
+background-image:url('2/navBullet.gif');
+background-repeat:no-repeat;
+background-position:left top; 
+/*padding:3px 6px 4px 16px;*/
+padding:3px 3px 3px 16px;
+font-family:tahoma;
+font-size:8pt;
+}
+.ms-navsubmenu1{
+width:100%;
+border-collapse:collapse;
+background-color:#3D4B51;
+}
+.ms-navsubmenu2{
+width:100%;
+background-color:#3D4B51;
+margin-bottom:6px;
+}
+table.ms-navselected{
+padding:2px;
+}
+table.ms-navselected,span.ms-navselected{
+/* background-image:url("/_layouts/images/SELECTEDNAV.GIF");
+background-color:#ffe6a0;
+background-repeat:repeat-x; */
+background-image:none;
+}
+table.ms-navselected td{
+/*background-image:url("/_layouts/images/navBullet.gif");
+background-repeat:no-repeat;
+background-position:top left; */
+background-image:none;
+/*padding:3px 6px 4px 17px;*/
+padding:3px 3px 3px 16px;
+}
+
+.ms-selectednavheader a{
+font-weight:normal;
+/* color:#000000; */
+color:white;
+text-decoration:none;
+}
+.ms-selectednavheader a:hover{
+font-weight:normal;
+color:white;
+/* color:#000000; */
+text-decoration:underline;
+}
+table.ms-recyclebin td{
+background-color:#f2f8ff;
+width:100%;
+/*border-top:solid 1px #ffffff;
+border-left:solid 1px #ffffff;*/
+padding:3px 3px 3px 3px;
+}
+table.ms-recyclebin td a{
+/*font-weight:bold;*/
+font-weight:normal;
+color:#008800;
+text-decoration:none;
+}
+
+table.ms-recyclebin td a:hover{
+/* color:#000000; */
+color:#008800;
+text-decoration:underline;
+}
+
+.ms-selectednav,.ms-GRSortFilter{
+/*border:1px solid #2353b2; */
+background:#fff699;
+padding-top:1px;
+padding-bottom:2px;
+}
+.ms-unselectednav{
+border:1px solid #83b0ec;
+padding-top:1px;
+padding-bottom:2px;
+}
+
+
+/* 
+=========================
+    OTHER
+=========================
+*/
+
+
+.ms-areaseparator{
+background-color:#1E2D54;
+/*background-image:url("/_layouts/images/formtitlegrad.gif");
+background-repeat:repeat-x; */
+background-image:url('2/clr_pxl.gif');
+background-repeat:repeat;
+border-right:none;
+border-left:none;
+padding-left:0px;
+height:auto;
+}
+
+
+TD.ms-titleareaframe,Div.ms-titleareaframe,.ms-pagetitleareaframe,.ms-mwspagetitleareaframe,.ms-consoletitleareaframe{
+/*background-image:url("/_layouts/images/pageTitleBKGD.gif");
+background-repeat:repeat-x;
+background-position:left top;*/
+background-color:#1E2D54;
+background-image:url('2/clr_pxl.gif');
+/* background-color:#1E2D54;
+color:#ffffff; */
+/* background-color:#d6e8ff; */
+/*background-image:url('http://vaww.devportal.vaco.va.gov/sites/WCT/Style%20Library/va_files_/images/pageTitleTopGradient.gif'); */
+background-repeat:repeat-x;
+background-position:left top;
+text-align:center;
+}
+
+.ms-titleareaframe table td.ms-titlearea,.ms-areaseparator table td.ms-titlearea,.ms-pagetitleareaframe table td.ms-titlearea,.ms-consoletitleareaframe{
+margin:2px 2px 2px 5px;
+background-color:#ffffff;
+background-image:none;
+/* background-color:#1E2D54;
+color:#ffffff; */
+}
+
+.ms-pagetitleareaframe table{
+/*background-image:url("/_layouts/images/topshape.jpg"); */
+background-image:url('2/clr_pxl.gif');
+background-repeat:repeat;
+/* background-image:url('http://vaww.devportal.vaco.va.gov/sites/WCT/Style%20Library/va_files_/images/pageTitleTopGradient.gif'); */
+background-position:left top;
+background-repeat:repeat-x;
+/*background-position:332px 4px; */
+height:54px;
+}
+
+
+.ms-pagemargin{
+background-color:#1E2D54;
+/*background-color:#83b0ec;
+background-image:url("/_layouts/images/navshape.jpg");
+background-repeat:no-repeat;
+background-position:-143px 0px;*/
+background-image:url('2/clr_pxl.gif');
+/*background-image:none; */
+height:100%;
+}
+
+.ms-pagebottommargin,.ms-pagebottommarginleft,.ms-pagebottommarginright{
+background-color:#1E2D54;
+/*background:#83b0ec;*/
+}
+
+.ms-bodyareapagemargin{
+/* background:#83b0ec; */
+background-color:#1E2D54;
+border-top:1px solid #6f9dd9; 
+
+}
+
+.ms-nav{
+background-color:#1E2D54;
+/* background-color:#83b0ec;
+background-image:url("/_layouts/images/navshape.jpg");
+background-repeat:repeat-x; */
+background-image:url('2/clr_pxl.gif');
+/*background-image:none; */
+font-family:tahoma;
+}
+
+td.ms-areaseparatorleft{
+/*background:#d6e8ff url("/_layouts/images/pageTitleBKGD.gif"); */
+background-image:url('2/clr_pxl.gif');
+background-color:#1E2D54;
+background-repeat:repeat-x;
+border-right:1px solid #6f9dd9;
+height:100%;
+}
+
+
+td.ms-rightareacell div.ms-pagemargin{
+background-color:#1E2D54;
+/*
+background-color:#83b0ec;
+background-image:url("/_layouts/images/pagebackgrad.gif");
+background-repeat:repeat-x; 
+background-image:none; */
+background-image:url('2/clr_pxl.gif');
+height:100%;
+border-left:solid 1px #83b0ec;
+}
+
+.ms-titlearealeft
+{
+background-color:#1E2D54;
+}
+
+
+.ms-pagebreadcrumb,.ms-pagebreadcrumb a{
+font-size:8pt;
+background-image:none;
+/* background-color:#1E2D54;
+color:#ffffff; */
+background-color:#ffffff;
+text-decoration:none;
+padding:0px 0px 0px 5px;
+}
+
+
+.ms-pagetitle{
+color:#ffffff;
+font-family:verdana;
+font-size:14pt;
+font-weight:normal;
+background-image:none;
+background-color:#6B1424;
+padding:0px 0px 0px 5px;
+vertical-align:middle;
+}
+
+.ms-pagetitle a{
+text-decoration:none;
+color:#ffffff;
+margin:0;
+font-weight:normal;
+}
+.ms-pagetitle a:hover{
+text-decoration:underline
+}
+
+div.ms-areaseparatorleft{
+background:#1E2D54 url('2/clr_pxl.gif');
+/*background-image: url("/_layouts/images/navshape.jpg");
+background-repeat:no-repeat;
+background-position:-143px 0px; */
+border-right:1px solid #6f9dd9;
+height:100%;
+}
+div.ms-areaseparatorright{
+/*background:#83b0ec url("/_layouts/images/pagebackgrad.gif"); */
+background:#1E2D54 url('2/clr_pxl.gif') repeat-x;
+border-left:1px solid #6f9dd9;
+padding-right:2px;
+height:100%;
+}
+
+.ms-titlearearight .ms-areaseparatorright{
+/*background:#d6e8ff url("/_layouts/images/pageTitleBKGD.gif"); */
+background-image:url("/_layouts/images/va/clr_pxl.gif");
+background-repeat:repeat-x;
+background:#1E2D54;
+border-left:1px solid #6f9dd9;
+padding-right:2px;
+height:100%;
+}
+
+
+.ms-bodyareaframe,.ms-viewareaframe{
+vertical-align:top;
+height:100%;
+width:100%;
+background-color:#ffffff;
+border-width:0px;
+/*
+border-top:1px solid #6f9dd9;
+border-right:1px solid #6f9dd9;
+border-left:1px solid #6f9dd9;*/
+}
+
+.ms-sitetitle
+{
+font:11pt verdana;
+font-weight:bold;
+color:white;
+padding:4px 0px 7px 6px;
+vertical-align:middle;
+margin:0;
+float:right;
+visibility:hidden;
+}
+
+h1.ms-sitetitle{
+margin:0;
+padding:0;
+color:white;
+visibility:hidden;
+}
+
+.ms-sitetitle a
+{
+font:11pt verdana;
+font-weight:bold;
+/*color:#666666;*/
+color:white;
+text-decoration:none;
+}
+
+.ms-globalTitleArea{
+text-align:right;
+background-image:url('/_layouts/images/VA/banner.jpg');
+background-position:left top;
+background-repeat:no-repeat;
+background-color: black;
+padding-left:5px;
+padding-right:0px;
+padding-top:1px;
+height:94px; /* added to show the background, since the icon is hidden */
+}
+
+/* this hides the icon on the title area */
+td.ms-titleimagearea{
+padding-left:0px;
+height:94px;
+display:none; /* just hide everything */
+}
+
+.ms-bannerContainer{
+background-image:none;
+/* background-position:right top;
+background-repeat:repeat-y; */
+background-color:#2E3A3F;
+padding-right:10px;
+padding-left:5px;
+border-width:0px;
+}
+
+/* 
+--------------------------------------------------- 
+
+Fix colors in Meeting workspace title area
+
+---------------------------------------------------
+*/
+
+
+#MeetingInfo{
+color:#ffffff; /* this is extra CSS */
+}
+#MeetingLocation{
+color:#ffffff; /* this is extra CSS */
+}
+#MeetingDate{
+color:#ffffff; /* this is extra CSS */
+}
+
+#TimeZoneLink{
+color:#ffffff; /* this is extra CSS */
+text-decoration:underline;
+}
+
+TD.ms-navheader{
+color:#ffffff !important;
+}
+
+.ms-MWSInstantiated u{
+color:#ffffff; /* this is extra CSS */
+text-decoration:underline;
+}
+
+.ms-navSubMenu2 .ms-vb a{
+color:#FFFFFF;
+/*color:#A0A0A0;*/
+text-decoration:none;
+}
+.ms-navSubMenu2 .ms-vb a:hover{
+ color:#FFFFFF; 
+/*color:#A0A0A0;*/
+text-decoration:underline;
+}
+.ms-navSubMenu2 td.ms-vb {
+/* color:#003399; */
+ color:#FFFFFF; 
+}
+
+
+/* 
+--------------------------------------------------- 
+
+Tool Bars (remove blue gradient background color)
+
+---------------------------------------------------
+*/
+/*
+table.ms-toolbar,table.ms-viewtoolbar,.ms-toolbarContainer{
+ background-image:url("/_layouts/images/toolgrad.gif"); 
+ background-image:none;
+background-repeat:no-repeat;
+background-color:#EFEFEF;
+ background-repeat:repeat-x;
+background-color:#d6e8ff; 
+}*/
+
+.ms-wikieditthird
+{
+/* background:url(/_layouts/images/toolgrad.gif); */
+background-color:#EFEFEF; /* this is extra CSS */
+background-image:none;
+padding-left:3px;
+}
+
+.ms-menutoolbar{
+border-bottom:1px solid #6f9dd9;
+height:22px;
+/* background-color:#afd2ff; */
+background-color:#EFEFEF; /* this is extra CSS */
+background-image:none;
+/* background-image:url("/_layouts/images/listheadergrad.gif");
+background-repeat:repeat-x; */
+}
+
+.ms-listheader{
+font:10pt verdana;
+color:#204d89;
+font-weight:bold;
+height:28px;
+background-image:none;
+/* background-image:url("/_layouts/images/listheadergrad.gif");
+background-repeat:repeat-x; */
+/*background-color:#d9d9d9; */
+background-color:#EFEFEF; /* this is extra CSS */
+}
+.ms-menutoolbar{
+border-bottom:1px solid #6f9dd9;
+height:22px;
+/* background-color:#afd2ff; */
+background-color:#EFEFEF; /* this is extra CSS */
+background-image:none;
+/* background-image:url("/_layouts/images/listheadergrad.gif");
+background-repeat:repeat-x; */
+}
+
+
+/* 
+--------------------------------------------------- 
+
+Fixing the blog sites
+
+---------------------------------------------------
+*/
+
+.ms-CategoryTitleCell {
+    
+    background-color:#aaaaaa
+}
+.ms-CategoryTitleCell a{
+color:#FFFFFF;
+/*color:#A0A0A0;*/
+text-decoration:none;
+}
+.ms-navSubMenu2 .ms-CategoryTitleCell a:hover{
+ color:#FFFFFF; 
+/*color:#A0A0A0;*/
+text-decoration:underline;
+}
+.ms-navSubMenu2 .ms-CategoryTitleCell a:visited{
+ color:#FFFFFF; 
+/*color:#A0A0A0;
+text-decoration:none;*/
+}
+
+a.ms-addnew{
+font-weight:normal;
+font-family:verdana;
+font-size:8pt;
+color:red;
+text-decoration:none;
+}
+a.ms-addnew:Hover{
+color:red;
+text-decoration:underline;
+}
+
+.ms-blogrssnav a{
+color:#ffffff;
+text-decoration:none;
+font-weight:bold;
+font-size:8pt;
+}
+
+.ms-BlogNavigator div.ms-navheader{
+background-color:#EFEFEF;
+border:0px;
+padding:1px 6px 3px 6px;
+}
+.ms-BlogNavigator div.ms-navheader a{
+color:#2E3A3F;
+}
+.ms-BlogNavigator div.ms-navheader a:hover{
+color:#2E3A3F;
+text-decoration:underline;
+}
+
+.ms-BlogNavigator div.ms-navheader{
+color:#2E3A3F;
+font-weight:bold;
+}
+
+.ms-BlogNavigator div.ms-WPBody{
+border:0px;
+}
+
+.ms-BlogEmptyListText{
+padding:4px 4px 2px 6px;
+/*color:#4c4c4c;*/
+color:#FFFFFF;
+}
+
+
+
+.leftnavPic {
+    /*background-image: url("/_layouts/images/portraitbackground.gif");*/
+    background-image: none;
+    background-repeat:repeat-x;
+    /*border:solid 1px #8ebbf5;   */ 
+    border:solid 1px #1E2D54;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    vertical-align:middle;
+    /*background-color:#ebf3ff;*/
+    background-color:#1E2D54;
+}
+
+
+.ms-MWSUninstantiated a:hover {
+    color:#fff475;
+    text-decoration:underline;
+}
+
+.ms-MWSUninstantiated a:link, .ms-MWSUninstantiated a:visited {
+    color:#fff475;
+}
+.ms-MWSUninstantiated a {
+    color:#fff475;
+    text-decoration:none;
+}
+
+
+.ms-wpbody a:link, .ms-wpbody a:visited {
+    /* VA Blue */
+    color: #1E2D54;
+}
+.oed_table_head {
+    font-family: tahoma;
+    font-size: 9pt;
+    font-weight: bold;
+    background-color: #1E2D54;
+    color: #FFFFFF;
+}
+.oed_pmas_menulink {
+    font-family: verdana;
+    font-size: .7em;
+}
+
+.oed_pmas_menulink a {
+    color:#1E2D54;
+    text-decoration:none;
+}
+.oed_pmas_menulink a:hover {
+    color:#1E2D54;
+    text-decoration:underline;
+}
+
+
+
+
+
+
+.ms-mwstitlearea{
+    background-color: #fff;
+}
+
+
+#webcims_cqwp_item {
+    float: left;
+    background-color:lime;
+    width:150px;
+    text-align:left;
+    vertical-align:top;
+    margin-right:10px;
+    margin-top:10px;
+}
+
+
+
+.webcims-action {
+    float:left;
+    width: 600px;
+    padding: 10px;
+}
+
+.webcims-action header{
+    margin-top:1px;
+    margin-left:5px;
+    margin-bottom:0;
+    font-family:Arial;
+    font-size:12px;
+    /* VA Red */
+    color: #6B1424;
+}
+
+.webcims-action label {
+    font-weight:bold;
+}
+
+.webcims-action ul {
+    margin-top: 2px;
+    list-style:none;
+    padding-left:20px;
+}
+
+.webcims-action h2 {
+    margin-top:1px;
+    margin-left:5px;
+    margin-bottom:0;
+    font-family:Arial;
+    font-size:12px;
+    /* VA Red */
+    color: #6B1424;
+    text-shadow: 3px 3px 4px #999;
+    
+}
+    
+.webcims-action:nth-child(2n+1) {  
+    padding: 10px;  
+    background: #E3E3E3;  
+    border: 1px solid #d7d7d7;  
+    border-radius: 11px;
+    /* Border-radius not implemented yet */  
+    -moz-border-radius: 11px;  
+    -webkit-border-radius: 11px;  
+}
+
+.grid-table {
+    width:300px;
+}
+
+.grid-table th {
+    color: white;
+    background-color: #6B1424;
+    text-align:center;
+    vertical-align:middle;
+    font-weight:bold;
+}
+
+.grid-table td {
+    text-align: left;
+}
+
+.grid-table a {
+    font-weight:bold;
+}
+
+.webcims-action-list {
+    line-height: 18px;
+    border-bottom: thin #7d7d7d dotted;
+    width:400px;
+    vertical-align:top;
+}
+
+.webcims-action-list a, .webcims-action-list a:visited, .webcims-action-list a:link {
+    background-color: #6b1424;
+    color: #ffffff;
+    font-weight:bold;
+    padding: 2px 3px 2px 3px;`
+    margin-right: 2px;
+}
+
+.webcims-action-list a:hover {
+    background-color: #1E2D54;
+    color:white;
+    font-weight:bold;
+    padding: 2px 3px 2px 3px;`
+    margin-right: 10px;
+}
+
+div#jLoadMe {
+    width:400px;
+}
+
+.master-detail-folder-ul {
+    list-style-image:url('/_layouts/Images/Folder16.gif');
+}
+
+.master-detail-folder-ul li a {
+    vertical-align:middle;
+}
+
+.myRowHighlight {color:red; background-color:#FFCC66} 
+
+.cssgradients.cssreflections h2 {
+    margin-bottom: 16px; /* Add some extra space! */
+    -webkit-box-reflect: below -1px -webkit-gradient(linear, 
+          left top, left bottom, 
+          from(transparent), 
+          color-stop(0.55, rgba(255,255,255, .01)), 
+          to(rgba(255,255,255, .15)));
+}
+
+.splashLinkArea {
+    border: 0;
+}
+
+
+/*===============================
+     OED Communications
+===============================*/
+.oed-comm-page {
+    
+    width:100%;
+}
+
+.oed-comm-main-content {
+    width: 70%;
+    float:left;
+    display: block;
+    vertical-align:top;
+}
+
+.oed-comm-main-content p, .oed-comm-main-content div,.oed-comm-main-content li {
+    font-size:12px;
+}
+
+.oed-comm-main-sidebar {
+    width: 20%;
+    float:left;
+    display:block;
+    vertical-align:top;
+    padding:7px;
+    border: 5px solid #dedede;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    
+    background-color: #f5f8fa;
+    box-shadow: 10px 10px 5px red;
+}
+
+.oed-comm-main-sidebar-label {
+    font-size:medium;
+    color:#1E2D54;
+    border-bottom:1px #dedede dotted;
+}
+
+.oed-comm-main-sidebar ul{
+    padding:0;
+    margin:8px;
+    margin-bottom:10px;
+    width:100%;
+}
+
+.oed-comm-main-sidebar li {
+    list-style-type:none;
+    line-height:150%;
+    margin: 5px 0;
+    
+}
+
+.oed-comm-main-sidebar li a {
+    display: block;
+    text-decoration:none;
+    
+}
+
+ * html .oed-comm-main-sidebar li a {  /* make hover effect work in IE */
+    width: 100%;
+}
+
+.oed-comm-main-sidebar li a:hover {
+    background: #c2d7e5;
+    text-decoration:none;
+    line-height:150%;
+}
+
+.oed-comm-main-3col-container {
+    width: 100%;
+    float:left;
+    vertical-align:top;
+    padding-bottom: 10px;
+    margin-bottom:5px;
+    height:100%;
+    border-bottom:1px #dedede dotted;
+}
+
+.oed-comm-main-column {
+    width:32%;
+    vertical-align:top;
+    float:left;
+    height:100%;
+    padding:5px;
+}
+.oed-comm-main-column-middle {
+    width:32%;
+    vertical-align:top;
+    float:left;
+    height:100%;
+    padding:5px;
+    border-left: 1px #dedede dotted;
+    border-right: 1px #dedede dotted;
+    
+}
+
+.oed-50-column-first {
+    width:48%;
+    vertical-align:top;
+    float:left;
+    height:100%;
+    padding:5px;
+}
+.oed-50-column{
+    width:48%;
+    vertical-align:top;
+    float:left;
+    height:100%;
+    padding:5px;
+    border-left: 1px #dedede dotted;
+}
+
+
+.oed-comm-main-column-middle ul {
+    margin:0 0 0 20px;
+    padding:0;
+    list-style: none;
+}
+
+.oed-comm-main-column ul {
+    margin:0 0 0 20px;
+    padding:0;
+    list-style: none;
+}
+
+.oed-comm-main-column li {
+    padding-left: 10px;
+    background-image: url(/SiteCollectionImages/arrow.gif);
+    background-repeat: no-repeat;
+    background-position: 0 .5em;
+}
+
+.oed-comm-main-column-middle li {
+    padding-left: 10px;
+    background-image: url(/SiteCollectionImages/arrow.gif);
+    background-repeat: no-repeat;
+    background-position: 0 .5em;
+}
+
+.oed-comm-main-column li a {
+    text-decoration:none;
+    display: block;
+}
+
+.oed-comm-main-column-middle li a {
+    text-decoration:none;
+    display: block;
+
+}
+
+.oed-comm-main-column li a:hover {
+    text-decoration:underline;
+    
+
+}
+
+.oed-comm-main-column-middle li a:hover {
+    text-decoration:underline;
+
+
+}
+
+#production-column-head {
+    padding:5px;
+    border-bottom: 2px #6B1424 solid;
+    background-color: #dfcccf;
+    text-shadow: 2px 2px 2px #999;
+}
+
+#production-column-head a {
+    text-shadow: 2px 2px 2px #999;
+    text-decoration:none;
+    display:block;
+    width:100%;
+
+}
+
+#congressional-column-head {
+    padding:5px;
+    border-bottom: 2px #636363 solid;
+    background-color: #cccccc;
+    text-shadow: 2px 2px 2px #999;
+}
+#congressional-column-head a {
+    text-shadow: 2px 2px 2px #999;
+    text-decoration:none;
+    display:block;
+    width:100%;
+}
+
+
+
+#reps-column-head {
+    padding:5px;
+    border-bottom: 2px #1e2d54 solid;
+    background-color: #bdc4d6;
+    text-shadow: 2px 2px 2px #999;
+}
+#reps-column-head a {
+    text-shadow: 2px 2px 2px #999;
+    text-decoration:none;
+    display:block;
+    width:100%;
+
+}
+
+
+.oed-comm-main-column p, .oed-comm-main-column-middle p {
+    
+    padding: 2;
+    margin-top:2px;
+    
+}
+
+.oed-comm-section {
+    width: 100%;
+}
+
+.oed-comm-section p, .oed-comm-section div {
+    float:left;
+}
+
+
+/********************/
+/* Contact Us Panel */
+/********************/
+#oed-contact-panel-group {
+    float: right;
+}
+
+#oed-contact-panel-group a:focus {
+    outline: none;
+}
+
+#oed-contact-panel {
+    background: #754c24;
+    height: 200px;
+    display: none;
+    
+}
+.oed-contact-panel-slide {
+    margin: 0;
+    padding: 0;
+    /*border-top: solid 4px #422410;*/
+    background: url(/SiteCollectionImages/btn-slide.gif) no-repeat center top;
+    /*
+    -webkit-transform: rotate(-90deg); 
+    -moz-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    */
+}
+.oed-contact-panel-btn-slide {
+    background: url(/SiteCollectionImages/white-arrow.gif) no-repeat right -50px;
+    text-align: center;
+    width: 144px;
+    height: 31px;
+    padding: 10px 10px 0 0;
+    margin: 0 auto;
+    display: block;
+    font: bold 120%/100% Arial, Helvetica, sans-serif;
+    color: #fff;
+    text-decoration: none;
+}
+.oed-contact-panel-active {
+    background-position: right 12px;
+}
+
+.inline-link {
+    color: green;
+    font-weight:normal;
+    text-decoration:underline;
+}
+
+.comm-site-content {
+    font-size:12px;
+}
+
+td.comm-site-content {
+    
+    vertical-align:top;
+}
+
+
+.wiki-menu-container {
+    float: right;
+    width: 200px;
+    padding: 0 1em 0 1em;
+    margin: 1em 1em 1em 1em;
+    background-color: #fff;
+    border: 4px ridge #cccccc;
+    border-color: #94a4c5;
+}
+.wiki-menu-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 0;
+    font-size: 1.25em;
+}
+
+.wiki-menu-container a {
+    text-decoration: underline;
+    /* VA Red */
+    color: #6B1424;
+    display:block;
+}
+
+.wiki-menu-container li:hover {
+    color: #fff;
+    background-color: #6B1424;
+}
+
+.wiki-menu-container li:hover a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+.wiki-container {
+    clear: both;
+    background-color: #fff;
+}
+
+div.oed-all-hands-post p {
+    
+    /* VA Blue */
+    color: #1E2D54;
+    font-size:12px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.article-list-title {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    /* VA Blue */
+    color: #1E2D54;
+    font-size:12px;
+}
+
+.article-list-description {
+    font-family: Verdana, Arial, sans-serif, Helvetica;
+    color:gray;
+    font-size:11px;
+}
+
+.twitter-feed-date {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    /* VA Blue */
+    color: #1E2D54;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.twitter-feed-body {
+    font-family: Verdana, Arial, sans-serif, Helvetica;
+    color:gray;
+    font-size:11px;
+
+}
+.twitter-feed-entry {
+    
+    margin-bottom:10px;
+}
+
+.social-media-tool-list-title {
+    display:block;
+    margin-bottom:10px;
+    font-size:14px;
+    font-family: Verdana, Arial, sans-serif, Helvetica;
+    font-weight:bold;
+    /* VA Red */
+    color: #6B1424;
+}
+
+/*JUITTER PLUGIN CSS*/
+
+#juitterContainer{} /*Juitter container*/
+
+#juitterContainer .twittList{margin:0;padding:0;} /* UL that will contain the list of tweets */
+
+/* Bellow the list of tweets "<li>" */
+
+#juitterContainer .twittLI{list-style:none;background:#EEFDEA;margin:0;padding:5px 0 0 0;border-bottom:dashed 1px #CAF8C9;padding:3px;clear:both;height:100%; margin-bottom:5px;} 
+#juitterContainer .twittList SPAN.time{color:#777;font-size:0.9em}
+#juitterContainer .twittList A{color:#006600;} /*Links inside the tweets list */
+
+/* Bellow the CSS for the avatar image  */
+
+#juitterContainer .juitterAvatar{float:left;border:solid 1px #D3EECA;background:#FFF;margin-right:5px;padding:2px;width:48px;;height:48px;}
+
+#juitterContainer .jRM{float:right;clear:both} /*read it on twitter link*/
+
+#juitterContainer .extLink{} /*CSS for the external links*/
+
+#juitterContainer .hashLink{} /*CSS for the hash links*/
+
+/*end of Juitter CSS*/
+
+
+
+/* AHD Widgets */
+#tweets {
+	font-family:  Verdana;
+	font-size: 11px;
+}
+
+#tweets header {
+	font-weight: bold;
+}
+
+.twitter {
+	width: 300px;
+	height: 60px;
+	margin-bottom: 5px;
+}
+
+article.twitter {
+	padding-bottom: 0;
+}
+
+.twitter header {
+	border-bottom: dotted 1px navy;
+}
+
+.twitter header img {
+	float: left;
+	padding: 5 5 5 3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
